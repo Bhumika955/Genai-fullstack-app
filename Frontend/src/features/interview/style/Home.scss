@@ -1,0 +1,268 @@
+
+.home {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 35px 20px;
+  background: #383838;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-header {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.home-header h1 {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 4vw, 38px);
+  line-height: 1.25;
+  color: #fff;
+}
+
+.home-header h1 span {
+  color: #e1034d;
+}
+
+.home-header p {
+  margin: 0;
+  color: #888f9d;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* Form card */
+.report-form {
+  width: 100%;
+  max-width: 1050px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 30px;
+  background: #383838;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(32, 32, 68, 0.05);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 28px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 0;
+  min-width: 0;
+}
+
+.form-group label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 15px;
+  color: #fff;
+  background: #555556;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #e1034d;
+  box-shadow: 0 0 0 3px rgba(112, 72, 232, 0.10);
+}
+
+/* Resume - right top */
+.report-form .form-group:nth-child(1) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Job Description - left side */
+.report-form .form-group:nth-child(2) {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.report-form .form-group:nth-child(2) textarea {
+  height: 100%;
+  min-height: 280px;
+}
+
+/* Self Description - right below resume */
+.report-form .form-group:nth-child(3) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* Error message */
+.form-error {
+  grid-column: 1 / -1;
+  color: #dc2626;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Generate button */
+.report-form button {
+  grid-column: 1 / -1;
+  justify-self: end;
+  width: auto;
+  min-width: 230px;
+  padding: 14px 22px;
+  border: none;
+  border-radius: 8px;
+  background: #e1034d;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.report-form button:hover {
+  background: #a9a9a9;
+}
+
+.report-form button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Generated report */
+.report-result {
+  width: 100%;
+  max-width: 1050px;
+  box-sizing: border-box;
+  margin: 24px auto 0;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.report-result pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: inherit;
+  line-height: 1.6;
+}
+.form-info {
+  width: 100%;
+  max-width: 540px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 16px 20px;
+  background: #94a7e4;;
+  color: #3a3a63;
+  border-radius: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 600;
+  #special{
+    color:#fff;
+  }
+}
+.info-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #202044;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+
+
+/* Tablet */
+@media (max-width: 900px) {
+  .report-form {
+    max-width: 700px;
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .report-form .form-group:nth-child(2) textarea {
+    min-height: 260px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .home {
+    padding: 28px 14px;
+  }
+
+  .home-header {
+    margin-bottom: 22px;
+  }
+
+  .home-header p {
+    font-size: 14px;
+  }
+
+  .report-form {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .report-form .form-group:nth-child(1),
+  .report-form .form-group:nth-child(2),
+  .report-form .form-group:nth-child(3) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .report-form .form-group:nth-child(2) textarea {
+    height: auto;
+    min-height: 150px;
+  }
+
+  .form-group textarea {
+    min-height: 120px;
+  }
+
+  .report-form button,
+  .report-form .form-error {
+    grid-column: 1;
+  }
+
+  .report-result {
+    padding: 18px;
+  }
+  .report-form button {
+    grid-column: 1;
+    justify-self: end;
+    width: auto;
+    max-width: 100%;
+  }
+  
+}
