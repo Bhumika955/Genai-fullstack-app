@@ -1,16 +1,27 @@
-import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import React, { useState,useEffect } from "react";
+import { useLocation, useNavigate,useParams} from "react-router";
 import "../style/Interview.scss";
-
+import { useInterview } from "../hooks/useInterview";
 const Interview = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const {interviewId}=useParams()
+const {
+  report: contextReport,
+  getReportById,
+  loading,
+} = useInterview();
 
-  const report = location.state?.report;
+const report = location.state?.report || contextReport;
+
+useEffect(() => {
+  if (!location.state?.report && interviewId) {
+    getReportById(interviewId);
+  }
+}, [interviewId]);
 
   const [activeTab, setActiveTab] = useState("technical");
   const [expandedQuestion, setExpandedQuestion] = useState(0);
-
   const technicalQuestions = report?.technicalQuestions || [];
   const behavioralQuestions = report?.behavioralQuestions || [];
   const skillGaps = report?.skillGaps || [];
@@ -55,6 +66,16 @@ const Interview = () => {
       </main>
     );
   }
+  if (loading && !report) {
+  return (
+    <main className="interview-page">
+      <section className="interview-empty">
+        <h2>Generating your report view...</h2>
+        <p>Please wait a moment.</p>
+      </section>
+    </main>
+  );
+}
 
   return (
     <main className="interview-page">
