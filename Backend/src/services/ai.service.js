@@ -58,8 +58,11 @@ const interviewReportSchema = {
             required: ["day", "focus", "tasks"],
          },
       },
+      title: { type: Type.STRING },
+     
    },
    required: [
+      "title",
       "matchScore",
       "technicalQuestions",
       "behavioralQuestions",
@@ -75,23 +78,26 @@ Resume: ${resume}
 Self-description: ${selfDescription}
 Job description: ${jobDescription}
 Follow these requirements strictly:
-1. matchScore: Return a number between 0 and 100.
+1. title: Return the job title for which the candidate is preparing,
+   based on the provided job description.
 
-2. technicalQuestions: Return an array of objects. Each object must contain:
+2. matchScore: Return a number between 0 and 100.
+
+3. technicalQuestions: Return an array of 5 objects. Each object must contain:
 - question: A technical interview question.
 - intention: What the interviewer wants to evaluate.
 - answer: A sample answer explaining the key points.
 
-3. behavioralQuestions: Return an array of objects. Each object must contain:
+4. behavioralQuestions: Return an array of 5 objects. Each object must contain:
 - question: A behavioral interview question.
 - intention: What the interviewer wants to evaluate.
 - answer: A sample answer based on the candidate's background. Do not invent specific experiences.
 
-4. skillGaps: Return an array of objects. Each object must contain:
+5. skillGaps: Return an array of objects. Each object must contain:
 - skill: A skill the candidate needs to improve based on the resume and job description.
 - severity: Exactly "low", "medium", or "high".
 
-5. preparationPlan: Return an array of 7 objects. Each object must contain:
+6. preparationPlan: Return an array of 7 objects. Each object must contain:
 - day: A number from 1 to 7.
 - focus: The main topic for that day.
 - tasks: Specific preparation tasks for that day.
