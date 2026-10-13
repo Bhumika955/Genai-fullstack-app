@@ -17,7 +17,7 @@ export const generateInterviewReport=async({jobDescription,selfDescription,resum
     return response.data
 }
 export const getInterviewReportById=async(interviewId)=>{
-       const response=await api.get(`/api/interview/report/${interviewId}`)
+       const response=await api.get(`/api/interview/report/${interviewId}?t=${Date.now()}`)
        return response.data
 }
 export const getAllInterviewReports=async()=>{
