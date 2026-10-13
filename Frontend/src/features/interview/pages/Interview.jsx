@@ -53,25 +53,26 @@ useEffect(() => {
     return "medium";
   };
 
-  if (!report) {
-    return (
-      <main className="interview-page">
-        <section className="interview-empty">
-          <h2>No interview report found</h2>
-          <p>Generate your personalized report first.</p>
-          <button onClick={() => navigate("/")}>
-            Go to Dashboard
-          </button>
-        </section>
-      </main>
-    );
-  }
-  if (loading && !report) {
+ if (loading && !report) {
   return (
     <main className="interview-page">
       <section className="interview-empty">
-        <h2>Generating your report view...</h2>
+        <h2>Loading your interview report...</h2>
         <p>Please wait a moment.</p>
+      </section>
+    </main>
+  );
+}
+
+if (!report) {
+  return (
+    <main className="interview-page">
+      <section className="interview-empty">
+        <h2>No interview report found</h2>
+        <p>Generate your personalized report first.</p>
+        <button onClick={() => navigate("/")}>
+          Go to Dashboard
+        </button>
       </section>
     </main>
   );
