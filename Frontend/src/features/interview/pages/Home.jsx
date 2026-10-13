@@ -1,9 +1,10 @@
-import React, { useState,useRef } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import "../style/Home.scss";
 import { useInterview } from "../hooks/useInterview";
 import {useNavigate} from "react-router"
 const Home = () => {
-  const{generateReport}=useInterview()
+  const{generateReport,getReports,reports}=useInterview()
+
   const [resume, setResume] = useState(null);
   const [jobDescription, setJobDescription] = useState("");
   const [selfDescription, setSelfDescription] = useState("");
@@ -12,7 +13,6 @@ const Home = () => {
   const [error, setError] = useState("");
   const resumeInputRef=useRef()
    const navigate=useNavigate()
-   
    
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -46,10 +46,9 @@ const handleSubmit = async (e) => {
     if (!reportData?._id) {
       throw new Error("Report ID was not received.");
     }
-
-    navigate(`/interview/${reportData._id}`, {
-      state: { report: reportData },
-    });
+await getReports();
+navigate(`/interview/${reportData._id}`);
+    
   } catch (err) {
     setError(
       err.response?.data?.message ||
@@ -141,7 +140,34 @@ const handleSubmit = async (e) => {
             : "✦ Generate Interview Report"}
         </button>
       </form>
+        <section className="recent-plans">
+  <h2>My Recent Interview Plans</h2>
 
+  {reports?.length > 0 ? (
+    <div className="recent-plans-grid">
+      {reports.map((item) => (
+        <article
+          className="report-card"
+          key={item._id}
+          onClick={() => navigate(`/interview/${item._id}`)}
+        >
+          <h3>{item.title || "Interview Report"}</h3>
+
+          <p>
+            Generated on{" "}
+            {item.createdAt
+              ? new Date(item.createdAt).toLocaleDateString()
+              : "Date unavailable"}
+          </p>
+
+          <p>Match Score: {item.matchScore ?? 0}%</p>
+        </article>
+      ))}
+    </div>
+  ) : (
+    <p>No interview plans generated yet.</p>
+  )}
+</section>
       {report && (
         <section className="report-result">
           <h2>Your Interview Report</h2>
