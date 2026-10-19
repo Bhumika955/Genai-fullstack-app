@@ -1,27 +1,29 @@
-import React, { useState,useEffect } from "react";
-import { useLocation, useNavigate,useParams} from "react-router";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate, useParams } from "react-router";
 import "../style/Interview.scss";
 import { useInterview } from "../hooks/useInterview";
 const Interview = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const {interviewId}=useParams()
-const {
-  report: contextReport,
-  getReportById,
-  loading,
-} = useInterview();
+  const { interviewId } = useParams()
+  const {
+    report: contextReport,
+    getReportById,
+    loading,
+    getResumePdf
+  } = useInterview();
 
-const report = location.state?.report || contextReport;
+  const report = location.state?.report || contextReport;
 
-useEffect(() => {
-  if (!location.state?.report && interviewId) {
-    getReportById(interviewId);
-  }
-}, [interviewId]);
+  useEffect(() => {
+    if (!location.state?.report && interviewId) {
+      getReportById(interviewId);
+    }
+  }, [interviewId]);
 
   const [activeTab, setActiveTab] = useState("technical");
   const [expandedQuestion, setExpandedQuestion] = useState(0);
+  const [isDownloading, setIsDownloading] = useState(false);
   const technicalQuestions = report?.technicalQuestions || [];
   const behavioralQuestions = report?.behavioralQuestions || [];
   const skillGaps = report?.skillGaps || [];
@@ -53,30 +55,30 @@ useEffect(() => {
     return "medium";
   };
 
- if (loading && !report) {
-  return (
-    <main className="interview-page">
-      <section className="interview-empty">
-        <h2>Loading your interview report...</h2>
-        <p>Please wait a moment.</p>
-      </section>
-    </main>
-  );
-}
+  if (loading && !report) {
+    return (
+      <main className="interview-page">
+        <section className="interview-empty">
+          <h2>Loading your interview report...</h2>
+          <p>Please wait a moment.</p>
+        </section>
+      </main>
+    );
+  }
 
-if (!report) {
-  return (
-    <main className="interview-page">
-      <section className="interview-empty">
-        <h2>No interview report found</h2>
-        <p>Generate your personalized report first.</p>
-        <button onClick={() => navigate("/")}>
-          Go to Dashboard
-        </button>
-      </section>
-    </main>
-  );
-}
+  if (!report) {
+    return (
+      <main className="interview-page">
+        <section className="interview-empty">
+          <h2>No interview report found</h2>
+          <p>Generate your personalized report first.</p>
+          <button onClick={() => navigate("/")}>
+            Go to Dashboard
+          </button>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="interview-page">
@@ -90,9 +92,8 @@ if (!report) {
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                className={`nav-item ${
-                  activeTab === tab.id ? "active" : ""
-                }`}
+                className={`nav-item ${activeTab === tab.id ? "active" : ""
+                  }`}
                 onClick={() => {
                   setActiveTab(tab.id);
                   setExpandedQuestion(0);
@@ -110,6 +111,32 @@ if (!report) {
           >
             ← Back to Dashboard
           </button>
+
+          
+<button
+  className={`download-resume-btn ${isDownloading ? "downloading" : ""}`}
+  disabled={isDownloading}
+  onClick={async () => {
+    setIsDownloading(true);
+    try {
+      await getResumePdf(interviewId);
+    } catch (error) {
+      console.error("Resume download failed:", error);
+    } finally {
+      setIsDownloading(false);
+    }
+  }}
+>
+  {isDownloading ? (
+    <>
+      <span className="download-spinner" />
+      <span>Generating Resume...</span>
+    </>
+  ) : (
+    <span>✦ Download AI generated resume</span>
+  )}
+</button>
+
         </aside>
 
         {/* Main content */}
@@ -135,9 +162,8 @@ if (!report) {
                 <div className="question-list">
                   {questions.map((item, index) => (
                     <article
-                      className={`question-card ${
-                        expandedQuestion === index ? "expanded" : ""
-                      }`}
+                      className={`question-card ${expandedQuestion === index ? "expanded" : ""
+                        }`}
                       key={`${activeTab}-${index}`}
                     >
                       <button
@@ -245,8 +271,8 @@ if (!report) {
               {matchScore >= 80
                 ? "Strong match for this role"
                 : matchScore >= 60
-                ? "Good potential for this role"
-                : "More preparation recommended"}
+                  ? "Good potential for this role"
+                  : "More preparation recommended"}
             </p>
           </section>
 
