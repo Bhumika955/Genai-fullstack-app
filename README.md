@@ -127,7 +127,7 @@ The project follows a layered, feature-based architecture on both frontend and b
 ## 📁 Project Structure
 
 ```
-interview-ai/
+GenAI/
 ├── Backend/
 │   ├── src/
 │   │   ├── config/
@@ -213,8 +213,8 @@ interview-ai/
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/Bhumika955/interview-ai.git
-cd interview-ai
+git clone https://github.com/Bhumika955/Genai-fullstack-app.git
+cd Genai-fullstack-app
 ```
 
 **2. Set up the backend**
@@ -376,25 +376,6 @@ Resume PDF + Job Description
 - [ ] Dockerization and CI/CD pipeline
 - [ ] Deployment (Vercel + Render)
 
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Commit your changes: `git commit -m "feat: add your feature"`
-4. Push to the branch: `git push origin feature/your-feature`
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-Distributed under the **MIT License**. See `LICENSE` for more information.
-
----
 
 ## 🙏 Acknowledgements
 
@@ -409,7 +390,7 @@ Distributed under the **MIT License**. See `LICENSE` for more information.
 **Bhumika Banke**
 
 [![GitHub](https://img.shields.io/badge/GitHub-Bhumika955-181717?logo=github)](https://github.com/Bhumika955)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-bhumika--banke-0A66C2?logo=linkedin)](https://linkedin.com/in/bhumika-banke)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-bhumika--banke-0A66C2?logo=linkedin)](https://www.linkedin.com/in/bhumika-banke-bb72b6262/)
 
 <div align="center">
 
