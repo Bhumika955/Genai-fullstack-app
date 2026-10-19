@@ -1,4 +1,4 @@
-import {generateInterviewReport,getAllInterviewReports,getInterviewReportById} from '../services/interview.api'
+import {generateInterviewReport,getAllInterviewReports,getInterviewReportById,generateResumePdf} from '../services/interview.api'
 import { useContext,useEffect } from 'react'
 import {InterviewContext} from "../interview.context"
 import { useParams } from 'react-router'
@@ -47,6 +47,39 @@ export const useInterview=()=>{
         setLoading(false)
     }
   }
+
+  const getResumePdf=async (interviewReportId) => {
+    if (!interviewReportId || interviewReportId === "undefined") {
+    console.error("Interview report ID is missing");
+    return;
+  }
+    setLoading(true)
+    let response=null
+    try{
+     const response = await generateResumePdf({ interviewReportId });
+
+    const blob = new Blob([response], {
+      type: "application/pdf",
+    });
+
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = `resume_${interviewReportId}.pdf`;
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    window.URL.revokeObjectURL(url);
+  } catch (err) {
+      console.log(err)
+    }
+    finally{
+      setLoading(false)
+    }
+  }
   useEffect(()=>{
       if(interviewId){
         getReportById(interviewId)
@@ -55,7 +88,7 @@ export const useInterview=()=>{
         getReports()
       }
   },[interviewId])
-  return {loading,setLoading, report,reports,generateReport,getReportById,getReports}
+  return {loading,setLoading, report,reports,generateReport,getReportById,getReports,getResumePdf}
 }
 
 
