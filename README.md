@@ -1,6 +1,7 @@
 <div align="center">
 
-# 🎯 Interview AI
+# 🎯 PrepForge
+AI Interview Prep & ATS Resume Builder
 
 ### AI-Powered Job Preparation Platform
 
