@@ -11,7 +11,6 @@ Analyze your resume against any job description, uncover skill gaps, practice ta
 ![Express](https://img.shields.io/badge/Express-4-000000?logo=express&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb&logoColor=white)
 ![Gemini](https://img.shields.io/badge/Google-Gemini_API-4285F4?logo=google&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-blue)
 
 [Live Demo](#) · [Report Bug](https://github.com/Bhumika955/interview-ai/issues) · [Request Feature](https://github.com/Bhumika955/interview-ai/issues)
 
@@ -369,9 +368,7 @@ Resume PDF + Job Description
 - [x] AI interview report generation
 - [x] Report history
 - [x] ATS resume PDF download
-- [ ] Mock interview mode with answer feedback
 - [ ] Multiple resume templates
-- [ ] Cover letter generator
 - [ ] Rate limiting and request logging
 - [ ] Dockerization and CI/CD pipeline
 - [ ] Deployment (Vercel + Render)
@@ -391,9 +388,3 @@ Resume PDF + Job Description
 
 [![GitHub](https://img.shields.io/badge/GitHub-Bhumika955-181717?logo=github)](https://github.com/Bhumika955)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-bhumika--banke-0A66C2?logo=linkedin)](https://www.linkedin.com/in/bhumika-banke-bb72b6262/)
-
-<div align="center">
-
-⭐ If you found this project useful, consider giving it a star!
-
-</div>
