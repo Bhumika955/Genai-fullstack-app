@@ -128,25 +128,71 @@ The project follows a layered, feature-based architecture on both frontend and b
 
 ```
 interview-ai/
-├── backend/
+├── Backend/
 │   ├── src/
-│   │   ├── config/          # Database connection & env config
-│   │   ├── controllers/     # auth.controller.js, interview.controller.js
-│   │   ├── middlewares/     # auth.middleware.js, file.middleware.js
-│   │   ├── models/          # user, blacklist, interviewReport schemas
-│   │   ├── routes/          # auth.routes.js, interview.routes.js
-│   │   ├── services/        # ai.service.js (Gemini), pdf.service.js (Puppeteer)
-│   │   └── app.js           # Express app setup
-│   ├── server.js            # Entry point
-│   └── package.json
-├── frontend/
+│   │   ├── config/
+│   │   │   └── database.js              # MongoDB connection
+│   │   ├── controllers/
+│   │   │   ├── auth.controller.js       # register, login, logout, get-me
+│   │   │   └── interview.controller.js  # generate report, get report(s), resume PDF
+│   │   ├── middlewares/
+│   │   │   ├── auth.middleware.js       # JWT verification + blacklist check
+│   │   │   └── file.middleware.js       # Multer resume upload
+│   │   ├── models/
+│   │   │   ├── blacklist.model.js       # Invalidated tokens
+│   │   │   ├── interviewReport.model.js # Interview report schema
+│   │   │   └── user.model.js            # User schema
+│   │   ├── routes/
+│   │   │   ├── auth.routes.js
+│   │   │   └── interview.routes.js
+│   │   ├── services/
+│   │   │   └── ai.service.js            # Gemini AI integration
+│   │   └── app.js                       # Express app setup
+│   ├── .env                             # Environment variables (not committed)
+│   ├── .gitignore
+│   ├── package.json
+|   ├── package-lock.json
+│   └── server.js                        # Entry point
+├── Frontend/
 │   ├── src/
 │   │   ├── features/
-│   │   │   ├── auth/        # pages, hooks, context, services
-│   │   │   └── interview/   # pages, hooks, context, services
+│   │   │   ├── auth/
+│   │   │   │   ├── components/
+│   │   │   │   │   └── Protected.jsx        # Route guard for authenticated users
+│   │   │   │   ├── hooks/
+│   │   │   │   │   └── useAuth.js           # Auth logic hook
+│   │   │   │   ├── pages/
+│   │   │   │   │   ├── Login.jsx
+│   │   │   │   │   └── Register.jsx
+│   │   │   │   ├── services/
+│   │   │   │   │   └── auth.api.js          # Axios auth API calls
+│   │   │   │   ├── auth.context.jsx         # Global auth state
+│   │   │   │   └── auth.form.scss
+│   │   │   └── interview/
+│   │   │       ├── hooks/
+│   │   │       │   └── useInterview.js      # Report generation & history logic
+│   │   │       ├── pages/
+│   │   │       │   ├── Home.jsx             # Resume upload & report history
+│   │   │       │   └── Interview.jsx        # Interview report view
+│   │   │       ├── services/
+│   │   │       │   └── interview.api.js     # Axios interview API calls
+│   │   │       ├── style/
+│   │   │       │    ├── Home.scss           
+│   │   │       │    └── Interview.scss         
+|   |   |       |  
+│   │   │       └── interview.context.jsx    # Report state
+│   │   ├── style/
+│   │   │   └── button.scss                  # Shared styles
 │   │   ├── App.jsx
-│   │   └── main.jsx
+│   │   ├── app.routes.jsx                   # Route definitions
+│   │   ├── main.jsx
+│   │   └── style.scss
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
 │   └── package.json
+|   
 ├── docs/
 │   └── screenshots/
 └── README.md
@@ -173,7 +219,7 @@ cd interview-ai
 
 **2. Set up the backend**
 ```bash
-cd backend
+cd Backend
 npm install
 cp .env.example .env     # then fill in your values
 npm run dev
@@ -181,7 +227,7 @@ npm run dev
 
 **3. Set up the frontend** (in a new terminal)
 ```bash
-cd frontend
+cd Frontend
 npm install
 npm run dev
 ```
