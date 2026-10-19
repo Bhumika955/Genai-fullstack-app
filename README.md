@@ -1,8 +1,6 @@
 <div align="center">
 
-# 🎯 PrepForge:AI Interview Prep & ATS Resume Builder
-
-### AI-Powered Job Preparation Platform
+# 🎯 AI Interview Preparation & ATS Resume Builder
 
 Analyze your resume against any job description, uncover skill gaps, practice tailored interview questions, and download an ATS-optimized resume, all in one place.
 
