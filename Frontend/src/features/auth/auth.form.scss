@@ -5,7 +5,8 @@ main {
   justify-content: center;
   align-items: center;
   padding: 24px;
-  background: linear-gradient(135deg, #f3f0ff, #f8faff);
+  background: linear-gradient(135deg,var(--bg-primary),
+  var(--bg-secondary));
   color: #20213a;
 
   .form-container {
@@ -16,15 +17,16 @@ main {
     flex-direction: column;
     gap: 1.25rem;
     padding: 40px;
-    border: 1px solid #e8e5f5;
     border-radius: 22px;
-    background: #fff;
+    background: var(--bg-secondary);
+border: 1px solid var(--border-color);
+color: var(--text-primary);
     box-shadow: 0 20px 60px rgba(51, 40, 100, 0.12);
 
     h1 {
       font-size: 32px;
       font-weight: 750;
-      color: #20213a;
+      color: var(--text-primary);
       text-align: center;
     }
 
@@ -47,7 +49,7 @@ main {
     gap: 0.5rem;
 
     label {
-      color: #333750;
+        color: var(--text-primary);
       font-size: 14px;
       font-weight: 600;
     }
@@ -55,18 +57,18 @@ main {
     input {
       width: 100%;
       min-height: 48px;
-      border: 1px solid #dfe2ee;
       outline: none;
       padding: 0.75rem 1rem;
       border-radius: 10px;
-      background: #fbfbfe;
-      color: #20213a;
+      background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
       font-size: 14px;
       transition: 0.2s ease;
 
       &:focus {
-        border-color: #7955ef;
-        background: #fff;
+         background: var(--bg-primary);
+    border-color: var(--accent-color);
         box-shadow: 0 0 0 3px rgba(121, 85, 239, 0.12);
       }
     }
