@@ -32,8 +32,6 @@ Analyze your resume against any job description, uncover skill gaps, practice ta
 - [Security Considerations](#-security-considerations)
 - [Troubleshooting](#-troubleshooting)
 - [Roadmap](#-roadmap)
-- [Contributing](#-contributing)
-- [License](#-license)
 - [Acknowledgements](#-acknowledgements)
 - [Author](#-author)
 
@@ -41,7 +39,7 @@ Analyze your resume against any job description, uncover skill gaps, practice ta
 
 ## 📌 Overview
 
-**Interview AI** is a full-stack Generative AI web application that helps job seekers prepare for interviews with confidence. Users upload their resume and paste a job description; the system uses Google Gemini to generate a structured interview preparation report covering match score, skill gaps, technical and behavioral questions, and a preparation plan. It can also produce an ATS-optimized version of the resume, downloadable as a PDF.
+**AI Interview Preparation & ATS Resume Builder** is a full-stack Generative AI web application that helps job seekers prepare for interviews with confidence. Users upload their resume and paste a job description; the system uses Google Gemini to generate a structured interview preparation report covering match score, skill gaps, technical and behavioral questions, and a preparation plan. It can also produce an ATS-optimized version of the resume, downloadable as a PDF.
 
 The project follows a layered, feature-based architecture on both frontend and backend, with secure cookie-based JWT authentication and token blacklisting.
 
