@@ -10,7 +10,7 @@ Analyze your resume against any job description, uncover skill gaps, practice ta
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb&logoColor=white)
 ![Gemini](https://img.shields.io/badge/Google-Gemini_API-4285F4?logo=google&logoColor=white)
 
-[Live Demo](#) · [Report Bug](https://github.com/Bhumika955/interview-ai/issues) · [Request Feature](https://github.com/Bhumika955/interview-ai/issues)
+[Live Demo](#)
 
 </div>
 
