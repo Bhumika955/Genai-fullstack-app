@@ -64,7 +64,7 @@ The project follows a layered, feature-based architecture on both frontend and b
 
 ## 🖼 Screenshots
 
-> Add screenshots to a `/docs/screenshots` folder and update the paths below.
+> Add screenshots to a `/screenshots` folder and update the paths below.
 
 | Login | Dashboard |
 |-------|-----------|
