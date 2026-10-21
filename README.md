@@ -149,7 +149,15 @@ GenAI/
 |   ├── package-lock.json
 │   └── server.js                        # Entry point
 ├── Frontend/
+|   ├── public/
+|   |   └── Gradient Resume Orbit Logo.png   #Logo
 │   ├── src/
+|   |   ├── components/
+|   |   |   ├── Navbar.jsx                   # Navigation Bar
+|   |   |   ├── Navbar.scss                  # Navigation styling
+|   |   |   └── ThemeToggle.jsx              # ThemeToggle setup
+|   |   ├── context/
+|   |   |   ├── ThemeContext.jsx
 │   │   ├── features/
 │   │   │   ├── auth/
 │   │   │   │   ├── components/
@@ -176,8 +184,11 @@ GenAI/
 │   │   │       │    └── Interview.scss         
 |   |   |       |  
 │   │   │       └── interview.context.jsx    # Report state
+│   │   ├── layouts/
+│   │   │   ├── RootLayout.jsx               # Shared Layout
 │   │   ├── style/
-│   │   │   └── button.scss                  # Shared styles
+│   │   │   ├── button.scss                  # Shared styles
+|   |   |   └── theme-toggle.scss 
 │   │   ├── App.jsx
 │   │   ├── app.routes.jsx                   # Route definitions
 │   │   ├── main.jsx
