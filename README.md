@@ -68,11 +68,11 @@ The project follows a layered, feature-based architecture on both frontend and b
 
 | Login | Dashboard |
 |-------|-----------|
-| ![Login](docs/screenshots/login.png) | ![Dashboard](docs/screenshots/dashboard.png) |
+| ![Login](image.png) | ![Dashboard](image-1.png) |
 
 | Interview Report | Resume PDF |
 |------------------|------------|
-| ![Report](docs/screenshots/report.png) | ![Resume](docs/screenshots/resume.png) |
+| ![Report](image-2.png) | ![Resume](image-3.png) |
 
 ---
 
@@ -199,8 +199,12 @@ GenAI/
 │   ├── package-lock.json
 │   └── package.json
 |   
-├── docs/
-│   └── screenshots/
+├── screenshots/
+|   ├── image.png
+|   ├── image-1.png
+|   ├── image-2.png
+|   └── image-3.png
+│   
 └── README.md
 ```
 
