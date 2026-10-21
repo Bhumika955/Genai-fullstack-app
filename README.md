@@ -68,11 +68,11 @@ The project follows a layered, feature-based architecture on both frontend and b
 
 | Login | Dashboard |
 |-------|-----------|
-| ![Login](image.png) | ![Dashboard](image-1.png) |
+| ![Login](screenshots/image.png) | ![Dashboard](screenshots/image-1.png) |
 
 | Interview Report | Resume PDF |
 |------------------|------------|
-| ![Report](image-2.png) | ![Resume](image-3.png) |
+| ![Report](screenshots/image-2.png) | ![Resume](screenshots/image-3.png) |
 
 ---
 
